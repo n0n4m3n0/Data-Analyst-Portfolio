@@ -29,3 +29,11 @@ CREATE FUNCTION max_min_freight(city varchar, out min_freight real, out max_frei
 	FROM orders
 	WHERE ship_city = city
 $$ LANGUAGE SQL	
+
+-- 5. ADD salary column to employee table and create a function, which adds random number to the salary of each employee
+ALTER TABLE employees
+ADD salary numeric
+
+CREATE FUNCTION update_salary() RETURNS void AS $$
+	UPDATE employees SET salary = floor(random()*10000)
+$$ LANGUAGE SQL
