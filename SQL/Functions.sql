@@ -12,3 +12,20 @@ CREATE OR REPLACE FUNCTION avg_freight() RETURNS double precision AS $$
 	SELECT AVG(freight)
 	FROM orders
 $$ LANGUAGE SQL	
+
+-- 3. Write a function that takes two integer parameters, used as a lower and upper bound to generate a random number
+-- within the bound (including the bound values themselves). The random function generates a real number between 0 and 1.
+-- It is necessary to calculate the difference between the boundaries and add one. Multiply the result of the random()
+-- function by the resulting number and add the value of the lower bound to the result. Apply the floor() function to the final result
+
+CREATE FUNCTION random_num(low int, high int) RETURNS double precision AS $$
+	SELECT FLOOR(random()*((high - low) + 1) + low)
+$$ LANGUAGE SQL;	
+
+-- 4.Create a function that returns the lowest and highest freight among orders in a given ship city
+
+CREATE FUNCTION max_min_freight(city varchar, out min_freight real, out max_freight real) AS $$
+	SELECT MIN(freight), MAX(freight)
+	FROM orders
+	WHERE ship_city = city
+$$ LANGUAGE SQL	
