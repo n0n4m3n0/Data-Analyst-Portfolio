@@ -78,3 +78,33 @@ $$ LANGUAGE SQL
 -- calculate an average between the value on the previous step and the corrected maximum
 -- returns all the orders where the freight value is less than the value in the previous step
 
+CREATE OR REPLACE FUNCTION orders_by_shipping(shipping_method smallint, correction_ratio real DEFAULT 0.3) RETURNS SETOF orders AS $$
+DECLARE
+	corrected_freight real;
+	max_freight real;
+	average_freight real;
+	another_average real;
+BEGIN
+	SELECT MAX(freight)
+	INTO max_freight
+	FROM orders
+	WHERE ship_via = shipping_method;
+	
+	corrected_freight = max_freight - max_freight*correction_ratio;
+	
+	SELECT AVG(freight)
+	INTO average_freight
+	FROM orders
+	WHERE ship_via = shipping_method;
+	
+	another_average = (corrected_freight + average_freight)/2;
+	
+	RETURN QUERY 
+	SELECT * 
+	FROM orders
+	WHERE freight < another_average
+	ORDER BY freight;
+END;
+$$ LANGUAGE plpgsql
+
+
