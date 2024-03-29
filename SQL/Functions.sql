@@ -37,3 +37,44 @@ ADD salary numeric
 CREATE FUNCTION update_salary() RETURNS void AS $$
 	UPDATE employees SET salary = floor(random()*10000)
 $$ LANGUAGE SQL
+
+-- 6. Create a function that adjusts the salary by a given percentage, but does not adjust the salary if its level exceeds the specified level,
+-- while the default upper salary level is 70, and the correction percentage is 15%.
+
+CREATE FUNCTION correct_salary(upper_salary numeric DEFAULT 7000, correction numeric DEFAULT 0.15)
+RETURNS void AS $$
+	BEGIN
+	UPDATE employees
+	SET salary = salary + (salary * correction)
+	WHERE salary <= upper_salary;
+	END;
+$$ LANGUAGE plpgsql	
+
+-- 7. Modify the function that adjusts the salary so that, as a result of the correction, it also displays the changed records.
+
+CREATE OR REPLACE FUNCTION update_salary(upper_limit numeric DEFAULT 7000, correction_ratio numeric DEFAULT 0.15)
+RETURNS SETOF employees AS $$
+	UPDATE employees
+	SET salary = salary + salary * correction_ratio
+	WHERE salary < upper_limit
+	RETURNING *;
+$$ LANGUAGE SQL
+
+-- 8. Modify the previous function so that it returns only the last_name, first_name, title, salary columns
+
+CREATE OR REPLACE FUNCTION update_salary(upper_limit numeric DEFAULT 7000, correction_ratio numeric DEFAULT 0.15)
+RETURNS TABLE(last_name varchar, first_name varchar, title varchar, salary numeric) AS $$
+	UPDATE employees
+	SET salary = salary + salary * correction_ratio
+	WHERE salary < upper_limit
+	RETURNING last_name, first_name, title, salary;
+$$ LANGUAGE SQL
+
+-- 9. Create a function, which receives a shipping method and returns all entries from the orders table, where freight is less than
+-- the value, which is calculated using the following algorithm:
+-- find a maximum freight among all the orders using the shipping method
+-- reduce the maximum freight by 30%
+-- calculate an average freight among all the orders using the shipping method
+-- calculate an average between the value on the previous step and the corrected maximum
+-- returns all the orders where the freight value is less than the value in the previous step
+
