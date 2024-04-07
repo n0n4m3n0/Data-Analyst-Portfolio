@@ -131,3 +131,13 @@ def second_largest():
         second_largest = input_nums[-2]
         print(second_largest)    
 second_largest()  
+
+'''
+Puzzle 10
+Define a function that takes an integer.
+When called, the function should return a string representation of the number with commas as thousand separator.
+'''
+def format_number_with_commas():
+    input_num = int(input("Type a number: "))
+    print(str(format(input_num, ',d')))
+format_number_with_commas()       
