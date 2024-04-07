@@ -68,3 +68,51 @@ def reverse_list():
     reverse_list = input_list[::-1]
     print(reverse_list)
 reverse_list()
+
+# Puzzle 7
+# Define a function that takes a list of variables
+# When called, the function should filter digits and return only strings 
+
+def filter_str():
+    data = list(map(str,input("Type the text to filter: ").strip().split()))
+    for x in data:
+        if x.isdigit():
+            data.remove(x)
+    print(data)
+filter_str()
+'''
+Puzzle 8
+Define a function that takes one parameter.
+When called, the function should return a morse code equivalent of the input string.
+The function should meet the following:
+- A space should be used between each morse code letter
+- If space is encountered in the input string, it should be translated to forward slash
+- The function should support upper and lowercase letters
+'''
+def morse_code():
+    morse_dict = { 'A':'.-', 'B':'-...',
+                    'C':'-.-.', 'D':'-..', 'E':'.',
+                    'F':'..-.', 'G':'--.', 'H':'....',
+                    'I':'..', 'J':'.---', 'K':'-.-',
+                    'L':'.-..', 'M':'--', 'N':'-.',
+                    'O':'---', 'P':'.--.', 'Q':'--.-',
+                    'R':'.-.', 'S':'...', 'T':'-',
+                    'U':'..-', 'V':'...-', 'W':'.--',
+                    'X':'-..-', 'Y':'-.--', 'Z':'--..',
+                    '1':'.----', '2':'..---', '3':'...--',
+                    '4':'....-', '5':'.....', '6':'-....',
+                    '7':'--...', '8':'---..', '9':'----.',
+                    '0':'-----', ', ':'--..--', '.':'.-.-.-',
+                    '?':'..--..', '/':'-..-.', '-':'-....-',
+                    '(':'-.--.', ')':'-.--.-'}
+    translated = []
+    data = input("Type text to translate to morse code: ").upper()
+    for x in data:
+        if x == " ":
+            translated.append("/")
+        elif x in morse_dict.keys():
+            a = morse_dict.get(x)
+            translated.append(a)
+    morse_string = " ".join(str(x) for x in translated)
+    print(morse_string)
+morse_code()    
