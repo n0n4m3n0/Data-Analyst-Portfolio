@@ -116,3 +116,18 @@ def morse_code():
     morse_string = " ".join(str(x) for x in translated)
     print(morse_string)
 morse_code()    
+
+'''
+Puzzle 9
+Define a function that takes a list of integers.
+When called, the function should return a second largest number in the list. If there is no second largest number, it should return None.
+'''
+def second_largest():
+    input_nums = list(map(int, input("Type a list of numbers: ").strip().split()))
+    input_nums.sort()
+    if len(input_nums) < 2:
+        print("None")
+    else:
+        second_largest = input_nums[-2]
+        print(second_largest)    
+second_largest()  
