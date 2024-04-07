@@ -58,3 +58,13 @@ def get_longest_string():
     largest_string = input_string[-1]
     print(largest_string)     
 get_longest_string()
+
+# Puzzle 6
+# Define a function that takes a list of integers
+# When called, the function should return a reversed list of the elements
+
+def reverse_list():
+    input_list = list(map(int,input("Enter a list of elements: ").strip().split()))
+    reverse_list = input_list[::-1]
+    print(reverse_list)
+reverse_list()
