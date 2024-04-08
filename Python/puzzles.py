@@ -244,3 +244,36 @@ def censor_python():
     str_output = ''.join(str(x) for x in censor_output)
     print(str_output)
 censor_python()   
+
+'''
+Puzzle 16
+A string is happy if every three consecutive characters are distinct. Examples of happy strings:
+"abcdefg"
+"qwerty"
+Examples of unhappy strings:
+"aaaaaa"
+"cbc"
+"hello"
+Define a function that takes an input string. The function should return a bool indicatin if the string is happy or not.
+'''
+
+def check_if_string_is_happy():
+    input_str = str(input("Type a string to check: "))
+    n = 0
+    m = 3
+    if len(input_str) < 3:
+        return True
+    else:
+        for i in range(len(input_str)):
+            checked_part_of_str = input_str[n:m]
+            if len(set(checked_part_of_str)) != len(checked_part_of_str):
+# set function returns a unique set of characters from a string(part of the string in our case). if the length of set will be equal to the length of the original part of the string 
+# we are good. If not - we are unhappy.                
+                return False
+                break
+            else:
+                n = n + 1
+                m = m + 1
+        return True        
+print(check_if_string_is_happy())  
+
