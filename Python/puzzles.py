@@ -1,6 +1,7 @@
-# Puzzle 1
-# Define a function	filter_strings_containing_a	that takes one parameter
-# When called, the function	should return a	new	list containing	only strings that contain the letter “a”. 
+'''
+Puzzle 1
+Define a function that takes a list of words. If there is letter 'a' in the word, it is added to the output list.
+'''
 
 user_input = ['apple', 'banana', 'something']
 list_a = [] 
@@ -11,10 +12,12 @@ for x in user_input:
             break
 print(list_a) 
 
-# Puzzle 2
-# Define a function	sum_if_less_than_fifty that	takes two parameters:
-# When called, the function	should return either: The sum of the two numbers if	the	sum	is less	than 50, None if the sum of	the	two	numbers	is
-# more than	or equal to	50
+'''
+Puzzle 2
+Define a function sum_if_less_than_fifty that takes two parameters:
+When called, the function should return either: The sum of the two numbers if the sum is less than 50, None if the sum of the two numbers is
+more than or equal to 50
+'''
 
 def summ_num():
     num_one = int(input("Input first number: "))
