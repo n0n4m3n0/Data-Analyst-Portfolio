@@ -225,4 +225,22 @@ def filter_palindromes():
     print(output_list)        
 filter_palindromes() 
 
+'''
+Puzzle 15
+Define a function that takes a string list as an input. When called, the function should replace any "P","Y","T","H","O","N" letters with "X".
+The function should be case insensitive.
+'''
 
+def censor_python():
+    censor_list = ["P","Y","T","H","O","N","p","y","t","h","o","n"]
+    censor_output = []
+    input_str = str(input("please type the words, separated by spaces: ").strip().split())
+    for x in input_str:
+        for y in x:
+            if y in censor_list:
+                censor_output.append("X")
+            else:
+                censor_output.append(y)
+    str_output = ''.join(str(x) for x in censor_output)
+    print(str_output)
+censor_python()   
