@@ -1,6 +1,6 @@
 '''
 Puzzle 1
-Define a function that takes a list of words. If there is letter 'a' in the word, it is added to the output list.
+Filter an input list of words. If there is letter 'a' in the word, it is added to the output list.
 '''
 
 user_input = ['apple', 'banana', 'something']
