@@ -277,3 +277,14 @@ def check_if_string_is_happy():
         return True        
 print(check_if_string_is_happy())  
 
+'''
+Puzzle 17
+Define a function, when called, the function should return the number of digits in the input_num. The function should be recursive. The function should
+not convert the integer to a string.
+'''
+# Make a function call by dividing the number by 10, reducing the input size of the given number by 1, and adding 1 for this operation.
+def get_number_of_digits(input_num):
+    if input_num // 10 == 0:
+        return 1
+    return 1 + get_number_of_digits(input_num // 10)
+print(get_number_of_digits(input_num = 9))  
