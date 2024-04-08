@@ -141,3 +141,15 @@ def format_number_with_commas():
     input_num = int(input("Type a number: "))
     print(str(format(input_num, ',d')))
 format_number_with_commas()       
+
+'''
+Puzzle 11
+Define a function that takes a string and coverts it to ASCII code.
+'''
+def string_to_ascii():
+    converted = []
+    input_str = str(input("Type a text to convert to ascii: "))
+    for x in input_str:
+        converted.append(ord(x))
+    print(converted)
+string_to_ascii() 
