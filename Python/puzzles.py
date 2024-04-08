@@ -177,3 +177,20 @@ def string_to_ascii():
         converted.append(ord(x))
     print(converted)
 string_to_ascii() 
+
+'''
+Puzzle 12
+Define a function that takes a list of strings and returns a new list with all the strings that have at least  one vowel.
+'''
+
+def get_string_with_vowels():
+    vowels = ["a", "e", "u", "o", "i"]
+    input_list = list(map(str, input("Please type a list of words, separated by spaces: ").strip().split()))
+    output_list = []
+    for x in input_list:
+        for y in x:
+            if y in vowels:
+                output_list.append(x)
+                break
+    print(output_list)
+get_string_with_vowels()
