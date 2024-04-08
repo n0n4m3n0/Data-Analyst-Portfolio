@@ -28,9 +28,11 @@ def summ_num():
         print(None)
 summ_num()    
 
-# Puzzle 3
-# Define	a	function	sum_even	that	takes	one	parameter:
-# When	called,	the	function	should	return	the	sum	ofeven	integers	in	the	list. 
+'''
+Puzzle 3
+Define a function sum_even that takes one parameter:
+When called, the function should return the sum of even integers in the list.
+'''
 
 def summ_list():
     counter = 0
@@ -40,9 +42,11 @@ def summ_list():
     print(counter)
 summ_list() 
 
-# Puzzle 4
-# Define	a	function	remove_vowels	that	takes	one	parameter:
-# When	called,	the	function	should	return	a	new	string	with	all	the	vowels removed. 
+'''
+Puzzle 4
+Define a function remove_vowels that takes one parameter:
+When called, the function should return a new string with all the vowels removed.
+'''
 
 import re
 def remove_vowels():
@@ -51,20 +55,30 @@ def remove_vowels():
     print(string_wo_vowels)
 remove_vowels()
 
-# Puzzle 5
-# Define	a	function	get_longest_string	that	takes	one	parameter:
-# When	called,	the	function	should	return	the	longest	string	in	the	list.	If	there	are ties,	return	the	string	that	appears	first	in	the	list. 
+
+'''
+Puzzle 5
+Define a function get_logest_string that takes one parameter:
+When called, the function should return the longest string in the list. If there are ties, return the string that appears first in the list.
+'''
 
 def get_longest_string():
     input_string = list(map(str,input("Enter a list of words separated by space ").strip().split()))
-    input_string.sort()
-    largest_string = input_string[-1]
+    input_string.sort(key=len)
+    if len(input_string) < 2:
+        largest_string = input_string[-1]
+    elif len(input_string[-1]) == len(input_string[-2]):
+        largest_string = input_string[-2]
+    else:            
+        largest_string = input_string[-1]
     print(largest_string)     
-get_longest_string()
+get_longest_string() 
 
-# Puzzle 6
-# Define a function that takes a list of integers
-# When called, the function should return a reversed list of the elements
+'''
+Puzzle 6
+Define a function that takes a list of integers
+When called, the function should return a reversed list of the elements
+'''
 
 def reverse_list():
     input_list = list(map(int,input("Enter a list of elements: ").strip().split()))
@@ -72,9 +86,11 @@ def reverse_list():
     print(reverse_list)
 reverse_list()
 
-# Puzzle 7
-# Define a function that takes a list of variables
-# When called, the function should filter digits and return only strings 
+'''
+Puzzle 7
+Define a function that takes a list of variables
+When called, the function should filter digits and return only strings 
+'''
 
 def filter_str():
     data = list(map(str,input("Type the text to filter: ").strip().split()))
@@ -83,6 +99,7 @@ def filter_str():
             data.remove(x)
     print(data)
 filter_str()
+
 '''
 Puzzle 8
 Define a function that takes one parameter.
@@ -92,6 +109,7 @@ The function should meet the following:
 - If space is encountered in the input string, it should be translated to forward slash
 - The function should support upper and lowercase letters
 '''
+
 def morse_code():
     morse_dict = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
@@ -125,6 +143,7 @@ Puzzle 9
 Define a function that takes a list of integers.
 When called, the function should return a second largest number in the list. If there is no second largest number, it should return None.
 '''
+
 def second_largest():
     input_nums = list(map(int, input("Type a list of numbers: ").strip().split()))
     input_nums.sort()
@@ -140,6 +159,7 @@ Puzzle 10
 Define a function that takes an integer.
 When called, the function should return a string representation of the number with commas as thousand separator.
 '''
+
 def format_number_with_commas():
     input_num = int(input("Type a number: "))
     print(str(format(input_num, ',d')))
@@ -149,6 +169,7 @@ format_number_with_commas()
 Puzzle 11
 Define a function that takes a string and coverts it to ASCII code.
 '''
+
 def string_to_ascii():
     converted = []
     input_str = str(input("Type a text to convert to ascii: "))
