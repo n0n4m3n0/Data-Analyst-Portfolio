@@ -194,3 +194,20 @@ def get_string_with_vowels():
                 break
     print(output_list)
 get_string_with_vowels()
+
+'''
+Puzzle 13
+Define a function that takes an input of ten integers and returns a list with the first five elements reversed. The solution should use the slicing
+insted of loops.
+'''
+
+def reverse_first_five_elements():
+    input_nums = list(map(int, input("Please type at least ten numbers, separated by commas: ").strip().split(",")))
+    if len(input_nums) < 10:
+        print("The total list of numbers is less than ten")
+        return
+    else:
+        input_nums[0:5] = reversed(input_nums[0:5])
+    print(input_nums)
+reverse_first_five_elements()  
+
