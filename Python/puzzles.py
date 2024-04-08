@@ -209,5 +209,20 @@ def reverse_first_five_elements():
     else:
         input_nums[0:5] = reversed(input_nums[0:5])
     print(input_nums)
-reverse_first_five_elements()  
+reverse_first_five_elements()
+
+'''
+Puzzle 14
+Define a function that takes a string list as an input. When called, the function should return a list of words that are palindromes.
+'''
+
+def filter_palindromes():
+    input_list = list(map(str, input("Please type a list of words, seprated by spaces: ").strip().split()))
+    output_list = []
+    for x in input_list:
+        if x == x[::-1]:
+            output_list.append(x)
+    print(output_list)        
+filter_palindromes() 
+
 
