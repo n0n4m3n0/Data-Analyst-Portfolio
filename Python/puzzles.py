@@ -346,3 +346,21 @@ def get_tic_tac_toe_winner():
     else:
         print(winnerO)
 get_tic_tac_toe_winner() 
+
+'''
+Puzzle 19
+Define a function print_triangle, which takes two parameters:
+number of levels: int
+symbol: str
+When called, the function should output a centered triangle shape made up of the desired symbol.
+The number of symbols in each row should increase by two with each level.
+'''
+def print_triangle():
+    number_of_levels = int(input("Pleas enter a number of levels in the triangle: "))
+    symbol = str(input("Please enter a symbol, which will be used to build the triangle: "))
+    n = 1
+    for x in range(number_of_levels):
+        string = "" * n + symbol * n
+        n = n + 2
+        print(string.center(number_of_levels + number_of_levels))
+print_triangle()  
