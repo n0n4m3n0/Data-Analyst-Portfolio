@@ -364,3 +364,17 @@ def print_triangle():
         n = n + 2
         print(string.center(number_of_levels + number_of_levels))
 print_triangle()  
+
+'''
+Puzzle 20
+Define a function fibonacci, that takes one parameter. When called, the function should return corresponding fibonacci sequence number.
+The function should be recursive
+'''
+def fibonacci(seq_num):
+    if seq_num == 0:
+        return 0
+    elif seq_num == 1 or seq_num == 2:
+        return 1
+    else:
+        return (fibonacci(seq_num - 2) + fibonacci(seq_num - 1))
+print(fibonacci(seq_num = 6))     
