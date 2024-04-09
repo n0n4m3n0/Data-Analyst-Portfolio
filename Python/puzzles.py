@@ -288,3 +288,61 @@ def get_number_of_digits(input_num):
         return 1
     return 1 + get_number_of_digits(input_num // 10)
 print(get_number_of_digits(input_num = 9))  
+
+'''
+Puzzle 18
+Define a function, that takes one parameter(the board list of tic tac toe). The function should determine if X or O has won. If there is a draw, the function
+should return None.
+'''
+def get_tic_tac_toe_winner():
+    tic_tac_toe_list = ["","X","O"]
+    tic_tac_toe_str = ""
+    input_board = list(map(str, input("Please enter the tic tac toe board: ").upper().strip().split()))
+    print(input_board)
+# Iterating over each symbol in the input board and coverting them to a string    
+    for x in input_board:
+        for y in x:
+            if y in tic_tac_toe_list:
+                tic_tac_toe_str = tic_tac_toe_str + str(y)
+# Checking all possible variants for X to win                 
+    if tic_tac_toe_str[0:3].count("X") == 3:
+        winnerX = "X"
+    elif tic_tac_toe_str[3:6].count("X") == 3:
+        winnerX = "X"
+    elif tic_tac_toe_str[6:9].count("X") == 3:
+        winnerX = "X"
+    elif tic_tac_toe_str[0:8:3].count("X") == 3:
+        winnerX = "X"
+    elif tic_tac_toe_str[1:9:3].count("X") == 3:
+        winnerX = "X"
+    elif tic_tac_toe_str[2:10:3].count("X") == 3:
+        winnerX = "X"
+    elif tic_tac_toe_str[0:10:4].count("X") == 3:
+        winnerX = "X" 
+    elif tic_tac_toe_str[2:8:2].count("X") == 3:
+        winnerX = "X"
+# Checking all possible variants for O to win        
+    if tic_tac_toe_str[0:3].count("O") == 3:
+        winnerO = "O"
+    elif tic_tac_toe_str[3:6].count("O") == 3:
+        winnerO = "O"
+    elif tic_tac_toe_str[6:9].count("O") == 3:
+        winnerO = "O"
+    elif tic_tac_toe_str[0:8:3].count("O") == 3:
+        winnerO = "O"
+    elif tic_tac_toe_str[1:9:3].count("O") == 3:
+        winnerO = "O"
+    elif tic_tac_toe_str[2:10:3].count("O") == 3:
+        winnerO = "O"
+    elif tic_tac_toe_str[0:10:4].count("O") == 3:
+        winnerO = "O" 
+    elif tic_tac_toe_str[2:8:2].count("O") == 3:
+        winnerO = "O"
+# If both X and O are winners, we print None        
+    if len(winnerX) == len(winnerO):
+        print("None")
+    elif len(winnerX) > len(winnerO):
+        print(winnerX)
+    else:
+        print(winnerO)
+get_tic_tac_toe_winner() 
