@@ -377,4 +377,33 @@ def fibonacci(seq_num):
         return 1
     else:
         return (fibonacci(seq_num - 2) + fibonacci(seq_num - 1))
-print(fibonacci(seq_num = 6))     
+print(fibonacci(seq_num = 6))
+
+'''
+Puzzle 21
+The formula for the harmonic sum is Hn = 1/1 + 1/2 + .. + 1/n
+Define a function that takes n as a parameter and it should return the harmonic sum of n. It should be recursive.
+'''
+def harmonic_sum(seq_num):
+    if seq_num == 0:
+        return 1
+    elif seq_num == 1:
+        return 1/2
+    else:
+        return 1/seq_num + harmonic_sum(seq_num - 1)
+print(harmonic_sum(seq_num = 9))
+
+'''
+Puzzle 22
+Define a function XOR that takes two parameters. When called, the function should return a string value that is a result of 
+XOR'ing two input strings together.
+'''
+def xor(input_a: str, input_b: str) -> str:
+    output = ""
+    for x, y in zip(input_a, input_b):
+        if x == y:
+            output += str("O")
+        else:
+            output += str("X")
+    print(output)    
+xor("11011","0011") 
