@@ -407,3 +407,18 @@ def xor(input_a: str, input_b: str) -> str:
             output += str("X")
     print(output)    
 xor("11011","0011") 
+
+'''
+Puzzle 23
+Define a function that takes one parameter - which consist of a string with math equation like "2 + 3 = 5"
+The function should return a boolean value, which depends on the equation result, if it is true or not.
+'''
+def is_valid_equation(input_equation: str):
+    equation = input_equation.partition("=")[0]
+    result = input_equation.partition("=")[2]
+    n = eval(equation)
+    if n == int(result):
+        return True
+    else:
+        return False
+print(is_valid_equation("-2 + 3  = 1"))    
