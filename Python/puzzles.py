@@ -422,3 +422,28 @@ def is_valid_equation(input_equation: str):
     else:
         return False
 print(is_valid_equation("-2 + 3  = 1"))    
+
+'''
+Puzzle 24
+Define a function that take two parameters - a list of integers and rotation(int). When called, the function should rotate the list
+of elements to the left, using the rotation number.
+'''
+def rotate_list(input_list: list[any], rotate: int):
+    if rotate == 0:
+        return input_list
+    else:
+        x = input_list.pop(-1)
+        input_list.insert(0, x)
+        return rotate_list(input_list, rotate - 1)
+print(rotate_list([1,2,3,4,5], 2))
+
+'''
+Puzzle 25
+Define a function, that takes two parameters: a list of lists and a starting node. When called, the function should return a list of nodes,
+adjacent to the starting node.
+'''
+def find_nodes(matrix: list[list[int]], start_node: int):
+    output = [i for i in range(len(matrix)) if matrix[i][start_node] == 1]
+    return output
+print(find_nodes([[1,1,1],[1,0,0],[1,0,0]], 1))
+
