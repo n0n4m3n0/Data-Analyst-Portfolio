@@ -459,6 +459,8 @@ def count_peaks_valleys(price_action):
     n = 0
     m = 3
     for i in range(len(price_action) - 2):
+# here we take each three elements and compare the middle one with previous and the next one
+# in order not to get outside of the list, we use len(list) - 2         
         checked_part = price_action[n:m]
         if checked_part[1] > checked_part[0] and checked_part[1] > checked_part[2]:
             count_peaks += 1
