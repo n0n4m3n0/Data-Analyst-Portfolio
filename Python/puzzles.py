@@ -447,3 +447,25 @@ def find_nodes(matrix: list[list[int]], start_node: int):
     return output
 print(find_nodes([[1,1,1],[1,0,0],[1,0,0]], 1))
 
+'''
+Puzzle 26
+Define a function, that takes one parameter: a list of integers. When called, the function should return a tuple representing how many
+peaks and valleys are in the given list. The tuple should contain two integers, the first representing the number of peaks, the second representing 
+the number of valleys.
+'''
+def count_peaks_valleys(price_action):
+    count_peaks = 0
+    count_valleys = 0
+    n = 0
+    m = 3
+    for i in range(len(price_action) - 2):
+        checked_part = price_action[n:m]
+        if checked_part[1] > checked_part[0] and checked_part[1] > checked_part[2]:
+            count_peaks += 1
+        if checked_part[1] < checked_part[0] and checked_part[1] < checked_part[2]:
+            count_valleys += 1
+        n += 1
+        m += 1
+    output = (count_peaks, count_valleys)
+    print(output)
+count_peaks_valleys([7, 6, 5, 10, 11, 12, 10, 9, 10])
