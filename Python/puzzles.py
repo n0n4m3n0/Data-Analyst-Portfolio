@@ -477,3 +477,37 @@ def count_peaks_valleys(price_action):
     output = (count_peaks, count_valleys)
     print(output)
 count_peaks_valleys([7, 6, 5, 10, 11, 12, 10, 9, 10])
+
+'''
+Puzzle 27
+Tap code is a simple method for transmitting messages through a series of taps or knocks.
+Tap code uses a 5x5 grid to represent each letter. 
+Define a function, that takes one parameter: string with a tap code and translates it in English.
+- Letters are 1-5 dots followed by space and folled by 1-5 dots e.g. ". ..."
+- End of letter/start of a new letter: two spaces
+- End of word/start of a new word: three spaces 
+'''
+tap_code_map = {
+    "a": ". .", "b": ". ..", "c": ". ...", "d": ". ....", "e": ". .....",
+    "f": ".. .", "g": ".. ..", "h": ".. ...", "i": ".. ....", "j": ".. .....",
+    "l": "... .", "m": "... ..", "n": "... ...", "o": "... ....", "p": "... .....",
+    "q": ".... .", "r": ".... ..", "s": ".... ...", "t": ".... ....",
+    "u": ".... .....", "v": "..... .", "w": "..... ..", "x": "..... ...",
+    "y": "..... ....", "z": "..... ....."
+    }
+def tap_code_to_english(input_code: str):
+    output_string = ""
+    words = input_code.split("   ")
+ # Here we parse the input string using "   " separator, which will identify words and make a list of words
+ # Then we iterate over words in this list
+    for word in words:
+        letter = word.split("  ")
+ # We parse each word using "  " double space, which will result into a list of letters
+ # Then we iterate over each letter and using loop compare them with values in tap_code_map       
+        for x in letter:
+            for key, value in tap_code_map.items():
+                if value == x:
+                    output_string = output_string + key
+        output_string = output_string + " "            
+    print(output_string)
+tap_code_to_english(". ...  ... ....  ... ....  ... ."
