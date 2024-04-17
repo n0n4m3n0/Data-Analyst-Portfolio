@@ -30,7 +30,7 @@ summ_num()
 
 '''
 Puzzle 3
-Define a function sum_even that takes one parameter:
+Define a function sum_even that takes one parameter: a list of integers
 When called, the function should return the sum of even integers in the list.
 '''
 
@@ -44,7 +44,7 @@ summ_list()
 
 '''
 Puzzle 4
-Define a function remove_vowels that takes one parameter:
+Define a function remove_vowels that takes one parameter: an input string. 
 When called, the function should return a new string with all the vowels removed.
 '''
 
@@ -58,7 +58,7 @@ remove_vowels()
 
 '''
 Puzzle 5
-Define a function get_logest_string that takes one parameter:
+Define a function get_logest_string that takes one parameter: a list of strings.
 When called, the function should return the longest string in the list. If there are ties, return the string that appears first in the list.
 '''
 
@@ -76,7 +76,7 @@ get_longest_string()
 
 '''
 Puzzle 6
-Define a function that takes a list of integers
+Define a function that takes a list of integers.
 When called, the function should return a reversed list of the elements
 '''
 
@@ -88,7 +88,7 @@ reverse_list()
 
 '''
 Puzzle 7
-Define a function that takes a list of variables
+Define a function that takes a list of variables.
 When called, the function should filter digits and return only strings 
 '''
 
@@ -102,7 +102,7 @@ filter_str()
 
 '''
 Puzzle 8
-Define a function that takes one parameter.
+Define a function that takes one parameter - a string.
 When called, the function should return a morse code equivalent of the input string.
 The function should meet the following:
 - A space should be used between each morse code letter
@@ -254,7 +254,7 @@ Examples of unhappy strings:
 "aaaaaa"
 "cbc"
 "hello"
-Define a function that takes an input string. The function should return a bool indicatin if the string is happy or not.
+Define a function that takes an input string. The function should return a bool indicating if the string is happy or not.
 '''
 
 def check_if_string_is_happy():
@@ -359,6 +359,7 @@ def print_triangle():
     number_of_levels = int(input("Pleas enter a number of levels in the triangle: "))
     symbol = str(input("Please enter a symbol, which will be used to build the triangle: "))
     n = 1
+    # n is the number of symbols in each string
     for x in range(number_of_levels):
         string = "" * n + symbol * n
         n = n + 2
@@ -416,6 +417,8 @@ The function should return a boolean value, which depends on the equation result
 def is_valid_equation(input_equation: str):
     equation = input_equation.partition("=")[0]
     result = input_equation.partition("=")[2]
+    # here we split the string using partition() function in two parts: first part is before the symbol = and the second is after =
+    # eval function evaluates(calculates) the math result of the first part and gives int and then we compare it with the int of the second part of the string
     n = eval(equation)
     if n == int(result):
         return True
@@ -441,6 +444,9 @@ print(rotate_list([1,2,3,4,5], 2))
 Puzzle 25
 Define a function, that takes two parameters: a list of lists and a starting node. When called, the function should return a list of nodes,
 adjacent to the starting node.
+A node is adjacent to the current node, if there is 1 in the position of the node.
+[1,1,1],[1,0,0],[1,0,0]
+means that all nodes[0],[1],[2] are adjacent to the node[0] 
 '''
 def find_nodes(matrix: list[list[int]], start_node: int):
     output = [i for i in range(len(matrix)) if matrix[i][start_node] == 1]
