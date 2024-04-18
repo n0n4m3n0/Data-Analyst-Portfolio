@@ -1,5 +1,5 @@
 '''
-Puzzle 
+Puzzle 29
 Define a function that takes an arbitrary number of arguments.
 When called, the function should return the number of arguments it was called with.
 '''
