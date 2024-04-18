@@ -30,3 +30,20 @@ def contains_python_chars(input_str: str):
         
 print(contains_python_chars("pyThon"))
 
+'''
+Puzzle 31
+Define a function that takes a list of integers from input. When called, the function should return a new list containing only the prime numbers.
+The prime number is a positive integer, which is divided by 1 and itself.
+'''
+def find_primes(input_nums):
+    counter = 0
+    output = []
+    for i in input_nums:
+        for j in range(1,i+1):
+            if i % j == 0:
+                counter += 1
+        if counter == 2:
+            output.append(i)
+        counter = 0
+    return output    
+print(find_primes([1,2,3,4,5,11,13,17]))      
