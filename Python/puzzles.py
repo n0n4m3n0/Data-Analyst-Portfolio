@@ -511,3 +511,25 @@ def tap_code_to_english(input_code: str):
         output_string = output_string + " "            
     print(output_string)
 tap_code_to_english(". ...  ... ....  ... ....  ... ."
+
+'''
+Puzzle 28
+Define a function, that takes a list of integers. When called, the function should return all possible combinations of the indexes
+of three numbers that add up to 0. The function should return a list of tuples, each tuple containing the three indexes of the numbers
+that add up to 0. or an empty list if no such combination exists.
+'''
+from itertools import combinations
+
+def find_combinations(input_nums):
+# Creating all possible combinations of indexes with the lenght 3 
+    combinations_list = list(combinations(range(len(input_nums)), 3))
+# Find combinations with sum equal to 0
+    matching_combinations = []
+    for combo in combinations_list:
+        if sum(input_nums[i] for i in combo) == 0:
+            matching_combinations.append(combo)
+    
+    return matching_combinations
+
+result = find_combinations([1, 23, 3, 4, 5, -9, -9])
+print("List of tuples containing indexes:", result)  
