@@ -47,3 +47,27 @@ def find_primes(input_nums):
         counter = 0
     return output    
 print(find_primes([1,2,3,4,5,11,13,17]))      
+
+'''
+Puzzle 32
+ROT13 is a simple encryption mechanism, which replaces each letter in a message with the letter 13 positions ahead of it in the alphabet. For example, "A"
+becomes "N". If there are no letter to shift forward, you should wrap around and start from the beginning.
+Define a function rot13 that takes one parameter: a string.
+When called, the function should return a new string which has been encrypted using ROT13. Numbers and symbols should not be rotated.
+'''
+alphabeth_list = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u",
+                  "v","w","x","y","z"]
+
+def rot13(input_str: str):
+    output_str = ""
+    for i in input_str.lower():
+        if i in alphabeth_list:
+            index = alphabeth_list.index(i)
+            index += 13 
+            if index > 25:
+                index = (index % 25) - 1
+            output_str = output_str + alphabeth_list[index]
+        else:
+            output_str = output_str + i            
+    return output_str 
+print(rot13("Cool puzzles!"))    
