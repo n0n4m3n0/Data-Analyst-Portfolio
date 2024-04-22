@@ -134,3 +134,20 @@ def gcd(num_one:int, num_two:int):
     print(output[-1])
 gcd(5,26)           
 
+'''
+Puzzle 35
+Define a function that takes two parameters.
+When called, the function should return a list of all pairs in input_nums whose sum is equal to the target.
+The resulting list should not contain duplicate pairs.
+'''
+from itertools import combinations
+
+def find_pairs_summing_to_target(input_nums, target):
+    output = []
+    for i in range(1,len(input_nums) + 1):
+        combinations_list = list(combinations(input_nums, 2))
+        for combo in combinations_list:
+            if sum(combo) == target:
+                output.append(combo)
+    print(list(set(output)))            
+find_pairs_summing_to_target([1,7,54,43,2,5,9,2,8], 10)  
