@@ -106,3 +106,31 @@ def matrix_multiply(left_matrix, right_matrix):
         return None                
     print(output_matrix)
 matrix_multiply(A, B)  
+
+'''
+Puzzle 34
+The greatest common divisor of two or more integers is the largest positive integer that divies each of the integers without a reminder.
+For example GCD of 8 and 12 is 4.
+Define a function that takes two integers. When called, the function should return the greatest common divisor of two integers.
+'''
+
+def gcd(num_one:int, num_two:int):
+    divisors = []
+    output = []
+    if num_one > num_two:
+        for i in range(1, (num_two + 1)):
+            if num_two % i == 0:
+                divisors.append(i)
+        for i in divisors:
+            if num_one % i == 0:
+                output.append(i)
+    else:
+        for i in range(1, (num_one + 1)):
+            if num_one % i == 0:
+                divisors.append(i)
+        for i in divisors:
+            if num_two % i == 0:
+                output.append(i)
+    print(output[-1])
+gcd(5,26)           
+
