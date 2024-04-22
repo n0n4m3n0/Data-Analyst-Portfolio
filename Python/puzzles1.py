@@ -71,3 +71,38 @@ def rot13(input_str: str):
             output_str = output_str + i            
     return output_str 
 print(rot13("Cool puzzles!"))    
+
+'''
+Puzzle 33
+Perform a matrix multiplication, using the following steps:
+- Determine the size of the resulting matrix: the resulting matrix will have the same number of rows as the first matrix and the same number of
+columns as the second matrix
+- Create a matrix of the corrected size with all elements set to zero.
+- For each element in the resulting matrix, multiply the elements of the corresponding row in the first matrix and the corresponding column in 
+the second matrix
+- Sum up the products obtained in the previous step and assign the result to the corresponding element in the resulting matrix
+- Repeat steps 3 to 4 for each element of the resulting matrix
+- Return the resulting matrix
+'''
+
+A = [[2,3],[4,5]]
+B = [[10,15],[5,1]]
+def matrix_multiply(left_matrix, right_matrix):
+    output_matrix = []
+    number_of_rows_left = len(left_matrix)
+    number_of_columnns_left = len(left_matrix[0])
+    number_of_rows_right = len(right_matrix)
+    number_of_columns_right = len(right_matrix[0])
+    if number_of_columnns_left == number_of_rows_right:    
+        for i in range(number_of_rows_left):
+          output_matrix.append([0] * number_of_columns_right)
+        
+        for i in range(number_of_rows_left):
+            for j in range(number_of_columns_right):
+                for k in range(number_of_rows_right):
+                    output_matrix[i][j] += left_matrix[i][k] * right_matrix[k][j]
+                  
+    else:
+        return None                
+    print(output_matrix)
+matrix_multiply(A, B)  
