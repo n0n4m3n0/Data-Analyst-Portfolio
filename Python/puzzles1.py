@@ -151,3 +151,19 @@ def find_pairs_summing_to_target(input_nums, target):
                 output.append(combo)
     print(list(set(output)))            
 find_pairs_summing_to_target([1,7,54,43,2,5,9,2,8], 10)  
+
+'''
+Puzzle 36
+Insertion sort. Is a simple sorting algorithm that builds the final sorted list one item at a time. It iterates through the input list, and for 
+each element in the input list, it compares it to elements that come before it and then insert it in the correct position.
+Define a function that takes one parameter: list of integers. The function should implement the insertion sort algorithm and return a sorted list.
+'''
+def insertion_sort(input_nums):
+    for i in range(1, len(input_nums)):
+        for j in range(0,i):
+            if input_nums[i] < input_nums[j]:
+                x = input_nums.pop(i)
+                input_nums.insert(j, x)
+    print(input_nums)        
+insertion_sort([23,34,5,66,12])
+
