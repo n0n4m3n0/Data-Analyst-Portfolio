@@ -167,3 +167,23 @@ def insertion_sort(input_nums):
     print(input_nums)        
 insertion_sort([23,34,5,66,12])
 
+'''
+Puzzle 37
+Define a function int_to_roman that takes one parameter: integer. 
+When called, the function should return the input number converted to a roman numeral. You can use only Roman numerals, no other characters are allowed.
+'''
+roman_map = {
+    1000: "M", 900: "CM", 500: "D", 400: "CD", 100: "C",
+    90: "XC", 50: "L", 40: "XL", 10: "X", 9: "IX", 5: "V", 4: "IV",
+    1: "I"
+    }
+
+def int_to_roman(input_num):
+    output = ''
+    while input_num > 0:
+        max_value = max([i for i in roman_map if i <= input_num])
+        output += roman_map.get(max_value)        
+        input_num = input_num - max_value
+    print(output)           
+int_to_roman(4)        
+
