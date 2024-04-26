@@ -117,13 +117,13 @@ Define a function that takes two integers. When called, the function should retu
 def gcd(num_one:int, num_two:int):
     divisors = []
     output = []
-    if num_one > num_two:
-        for i in range(1, (num_two + 1)):
-            if num_two % i == 0:
-                divisors.append(i)
-        for i in divisors:
-            if num_one % i == 0:
-                output.append(i)
+    if num_one > num_two: #here we check witch of the input values is larger, if num_one that proceed with the loop  
+        for i in range(1, (num_two + 1)): #for a range of each integer up to num_two 
+            if num_two % i == 0: #if num_two divides by this i without reminder 
+                divisors.append(i) #we append this i to the divisors list
+        for i in divisors: #then for each of the divisor in divisors list
+            if num_one % i == 0: #if num_one is divided by the divisor without reminder
+                output.append(i) #we append the divisor to the output list  
     else:
         for i in range(1, (num_one + 1)):
             if num_one % i == 0:
@@ -131,7 +131,7 @@ def gcd(num_one:int, num_two:int):
         for i in divisors:
             if num_two % i == 0:
                 output.append(i)
-    print(output[-1])
+    print(output[-1]) #here we took the largest divisors of all
 gcd(5,26)           
 
 '''
@@ -145,11 +145,11 @@ from itertools import combinations
 def find_pairs_summing_to_target(input_nums, target):
     output = []
     for i in range(1,len(input_nums) + 1):
-        combinations_list = list(combinations(input_nums, 2))
+        combinations_list = list(combinations(input_nums, 2)) # here we create a combination list of pairs from the list
         for combo in combinations_list:
             if sum(combo) == target:
                 output.append(combo)
-    print(list(set(output)))            
+    print(list(set(output))) # set function makes the pairs unique           
 find_pairs_summing_to_target([1,7,54,43,2,5,9,2,8], 10)  
 
 '''
@@ -159,11 +159,11 @@ each element in the input list, it compares it to elements that come before it a
 Define a function that takes one parameter: list of integers. The function should implement the insertion sort algorithm and return a sorted list.
 '''
 def insertion_sort(input_nums):
-    for i in range(1, len(input_nums)):
-        for j in range(0,i):
-            if input_nums[i] < input_nums[j]:
+    for i in range(1, len(input_nums)): # here we take a range from 1 to the lenght of the list
+        for j in range(0,i): # here we make an iteration from 0 to the item in the list
+            if input_nums[i] < input_nums[j]: # if the current value is less than the previous value, we pop it from the list 
                 x = input_nums.pop(i)
-                input_nums.insert(j, x)
+                input_nums.insert(j, x) # we insert the poped value in the list in place of the larger value, which we compared  
     print(input_nums)        
 insertion_sort([23,34,5,66,12])
 
@@ -181,9 +181,9 @@ roman_map = {
 def int_to_roman(input_num):
     output = ''
     while input_num > 0:
-        max_value = max([i for i in roman_map if i <= input_num])
-        output += roman_map.get(max_value)        
-        input_num = input_num - max_value
+        max_value = max([i for i in roman_map if i <= input_num]) # here we find a max value among roman integers, which is less or equal to the input integer
+        output += roman_map.get(max_value) # we get Roman numeral by the value and append it to the output string       
+        input_num = input_num - max_value # we substract the value from the input integer
     print(output)           
 int_to_roman(4)        
 
