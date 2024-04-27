@@ -20,11 +20,9 @@ python_list = ["P", "Y", "T", "H", "O", "N"]
 
 def contains_python_chars(input_str: str):
     input_str = input_str.upper()
-    input_set = set(input_str)
-    print(input_set)
-    for i in input_set:
-        print(i)
-        if i not in python_list:
+    input_set = set(input_str) #here we make a unique set of letters using the input string
+    for i in input_set: 
+        if i not in python_list: #then we iterate through the set and check if a letter not in the "python_list"
             return False
     return True    
         
@@ -39,12 +37,12 @@ def find_primes(input_nums):
     counter = 0
     output = []
     for i in input_nums:
-        for j in range(1,i+1):
-            if i % j == 0:
-                counter += 1
-        if counter == 2:
-            output.append(i)
-        counter = 0
+        for j in range(1,i+1): #here we iterate through each number from 1 to i
+            if i % j == 0: #in order to check if the number can be divided without a reminder 
+                counter += 1 #if it can, then we increase the counter
+        if counter == 2: #if the counter is equal to 2(means that there are only two divisors 1 and itself) 
+            output.append(i) #we add the number to the output list
+        counter = 0 #we reset the counter for the next value in the list
     return output    
 print(find_primes([1,2,3,4,5,11,13,17]))      
 
@@ -60,15 +58,15 @@ alphabeth_list = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p
 
 def rot13(input_str: str):
     output_str = ""
-    for i in input_str.lower():
-        if i in alphabeth_list:
-            index = alphabeth_list.index(i)
-            index += 13 
-            if index > 25:
-                index = (index % 25) - 1
-            output_str = output_str + alphabeth_list[index]
+    for i in input_str.lower(): #here we iterate through the letters of the input_str
+        if i in alphabeth_list: #if the letter is in the alphabeth_list 
+            index = alphabeth_list.index(i) #we get the index of this letter from the alphabeth_list 
+            index += 13  #we increase the index by 13
+            if index > 25: #if the index become larger than 25, then we check the reminder of the divison by modulus
+                index = (index % 25) - 1 #and assign it to the index
+            output_str = output_str + alphabeth_list[index] #we add to the output string the letter with the new index
         else:
-            output_str = output_str + i            
+            output_str = output_str + i #else(if the letter is not in the alphabeth_list, we just add the letter as is to the output           
     return output_str 
 print(rot13("Cool puzzles!"))    
 
