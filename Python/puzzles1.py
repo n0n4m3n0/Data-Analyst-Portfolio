@@ -185,3 +185,23 @@ def int_to_roman(input_num):
     print(output)           
 int_to_roman(4)        
 
+'''
+Puzzle 38
+Define a reverse function, which converts a Roman numeral to integer.
+'''
+def roman_to_integer(roman):
+    roman_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    total = 0
+    prev_value = 0
+    
+    reversed = roman[::-1] # we reverse the Roman numeral to simplify calculation
+    for i in reversed: # then we iterate through each element of the reversed string
+        value = roman_dict[i] # we find corresponding values in the roman_dict
+        if value < prev_value: # if the value is less than the previous 
+            total -= value # we substract it from the total sum  
+        else:
+            total += value # else we add it to the total sum 
+        prev_value = value # rewrite the previous value with the current one
+        
+    print(total)    
+roman_to_integer("MMMMCMXCIX") 
