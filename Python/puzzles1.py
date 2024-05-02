@@ -190,9 +190,11 @@ Puzzle 38
 Define a reverse function, which converts a Roman numeral to integer.
 '''
 def roman_to_integer(roman):
+    # Here we switch keys and values in the roman_dict, so it will be easier to address the elements and find values for the keys.
     roman_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     total = 0
-    prev_value = 0
+    prev_value = 0 # this is the value, which we compare the current digit with in the loop
+    # then we rewrite the value with the current one
     
     reversed = roman[::-1] # we reverse the Roman numeral to simplify calculation
     for i in reversed: # then we iterate through each element of the reversed string
