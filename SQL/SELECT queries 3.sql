@@ -60,31 +60,31 @@ ORDER BY SUM(freight) DESC
 
 -- 7. Select all unique countries of customers and shippers and sort them by country name (ASC)
   
-SELECT DISTINCT country
+SELECT country
 FROM customers
 UNION 
-SELECT DISTINCT country
+SELECT country
 FROM suppliers
 ORDER BY country ASC
 
 -- 8. Select all countries where customers and shippers and employees are registered simultaneously 
   
-SELECT DISTINCT country
+SELECT country
 FROM customers
 INTERSECT 
-SELECT DISTINCT country
+SELECT country
 FROM suppliers
 INTERSECT
-SELECT DISTINCT country
+SELECT country
 FROM employees
 
 -- 9. Select all countries where customers and shippers are registered but the employees are not
   
-SELECT DISTINCT country
+SELECT country
 FROM customers
 INTERSECT 
-SELECT DISTINCT country
+SELECT country
 FROM suppliers
 EXCEPT
-SELECT DISTINCT country
+SELECT country
 FROM employees
