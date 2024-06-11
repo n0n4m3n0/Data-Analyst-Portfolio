@@ -207,3 +207,26 @@ def roman_to_integer(roman):
         
     print(total)    
 roman_to_integer("MMMMCMXCIX") 
+
+'''
+Puzzle39
+Define a binary search algorithm. The basic idea behind the algorithm is to repeatedly divide the search interval in half.
+until the value is found or the search interval is empty.
+'''
+def binary_search(arr, value_to_find):
+#on the first iteration the search interval is equal to the whole list     
+    search_interval = arr
+#we iterate either while the lenght of search interval is > 0 or the value is found:    
+    while len(search_interval) > 0:
+#calculate the index of the middle element by dividing the lenght of the interval by 2 without reminder        
+        middle_index = len(search_interval) // 2
+        if search_interval[middle_index] == value_to_find:
+            return arr.index(value_to_find)
+#if the middle element is greater than the value we are looking for, then search interval is updated search_interval[:middle_index]            
+        elif search_interval[middle_index] > value_to_find:
+            search_interval = search_interval[:middle_index]
+        else:
+            search_interval = search_interval[middle_index + 1:]
+    return -1  # Return -1 if value is not found
+
+print(binary_search([2, 3, 4, 10, 40], 10))
